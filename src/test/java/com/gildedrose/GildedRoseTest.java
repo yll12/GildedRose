@@ -31,7 +31,7 @@ public class GildedRoseTest {
     }
 
     @Test
-    public void normal_item_degrades_twice_as_fast_if_sellIn_is_zero() {
+    public void normal_item_degrades_twice_as_fast_when_expired() {
         List<Item> items = singletonList(NORMAL_ITEM.withSellIn(0)
                                                     .withQuality(5).build());
         new GildedRose(items).updateQuality();
@@ -75,7 +75,7 @@ public class GildedRoseTest {
     }
 
     @Test
-    public void aged_brie_quality_increase_twice_as_fast_when_sellIn_is_zero() {
+    public void aged_brie_quality_increase_twice_as_fast_when_expired() {
         List<Item> items = singletonList(AGED_BRIE.withSellIn(0)
                                                   .withQuality(5).build());
         new GildedRose(items).updateQuality();
