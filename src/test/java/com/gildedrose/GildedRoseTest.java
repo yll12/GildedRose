@@ -74,7 +74,7 @@ public class GildedRoseTest {
     }
 
     @Test
-    public void aged_brie_quality_increase_twice_rate_when_sellIn_is_zero() {
+    public void aged_brie_quality_increase_twice_as_fast_when_sellIn_is_zero() {
         List<Item> items = singletonList(AGED_BRIE.withSellIn(0)
                                                   .withQuality(5).build());
         new GildedRose(items).updateQuality();
@@ -82,6 +82,78 @@ public class GildedRoseTest {
                    allOf(name(equalTo("Aged Brie")),
                          quality(equalTo(7)),
                          sellIn(equalTo(-1))));
+    }
+
+    @Test
+    public void sulfuras_quality_and_sellIn_unchanged() {
+        List<Item> items = singletonList(anItem().withName("Sulfuras, Hand of Ragnaros")
+                                                 .withSellIn(5)
+                                                 .withQuality(5).build());
+        new GildedRose(items).updateQuality();
+        assertThat(items.get(0),
+                   allOf(name(equalTo("Sulfuras, Hand of Ragnaros")),
+                         quality(equalTo(5)),
+                         sellIn(equalTo(5))));
+    }
+
+    @Test
+    public void backstage_quality_increase_when_sellIn_is_more_than_10() {
+        List<Item> items = singletonList(anItem().withName("Backstage passes to a TAFKAL80ETC concert")
+                                                 .withSellIn(15)
+                                                 .withQuality(5).build());
+        new GildedRose(items).updateQuality();
+        assertThat(items.get(0),
+                   allOf(name(equalTo("Backstage passes to a TAFKAL80ETC concert")),
+                         quality(equalTo(6)),
+                         sellIn(equalTo(14))));
+    }
+
+    @Test
+    public void backstage_quality_increase_twice_as_fast_when_sellIn_is_LTE_10() {
+        List<Item> items = singletonList(anItem().withName("Backstage passes to a TAFKAL80ETC concert")
+                                                 .withSellIn(10)
+                                                 .withQuality(5).build());
+        new GildedRose(items).updateQuality();
+        assertThat(items.get(0),
+                   allOf(name(equalTo("Backstage passes to a TAFKAL80ETC concert")),
+                         quality(equalTo(7)),
+                         sellIn(equalTo(9))));
+    }
+
+    @Test
+    public void backstage_quality_increase_trice_as_fast_when_sellIn_is_less_than_5() {
+        List<Item> items = singletonList(anItem().withName("Backstage passes to a TAFKAL80ETC concert")
+                                                 .withSellIn(4)
+                                                 .withQuality(5).build());
+        new GildedRose(items).updateQuality();
+        assertThat(items.get(0),
+                   allOf(name(equalTo("Backstage passes to a TAFKAL80ETC concert")),
+                         quality(equalTo(8)),
+                         sellIn(equalTo(3))));
+    }
+
+    @Test
+    public void backstage_quality_drops_to_zero_when_expired() {
+        List<Item> items = singletonList(anItem().withName("Backstage passes to a TAFKAL80ETC concert")
+                                                 .withSellIn(0)
+                                                 .withQuality(5).build());
+        new GildedRose(items).updateQuality();
+        assertThat(items.get(0),
+                   allOf(name(equalTo("Backstage passes to a TAFKAL80ETC concert")),
+                         quality(equalTo(0)),
+                         sellIn(equalTo(-1))));
+    }
+
+    @Test
+    public void backstage_quality_never_exceeds_50() {
+        List<Item> items = singletonList(anItem().withName("Backstage passes to a TAFKAL80ETC concert")
+                                                 .withSellIn(5)
+                                                 .withQuality(50).build());
+        new GildedRose(items).updateQuality();
+        assertThat(items.get(0),
+                   allOf(name(equalTo("Backstage passes to a TAFKAL80ETC concert")),
+                         quality(equalTo(50)),
+                         sellIn(equalTo(4))));
     }
 
 }
