@@ -17,67 +17,16 @@ class GildedRose {
                     new NormalItem(items.get(i)).update();
                     return;
                 case "Aged Brie":
-                    agedBrieUpdate(items.get(i));
+                    new AgedBrieItem(items.get(i)).update();
                     return;
                 case "Sulfuras, Hand of Ragnaros":
-                    sulfurasUpdate(items.get(i));
+                    new SulfurasItem().update();
                     return;
                 case "Backstage passes to a TAFKAL80ETC concert":
-                    backstageUpdate(items.get(i));
+                    new BackStageItem(items.get(i)).update();
                     return;
             }
         }
     }
 
-    private void backstageUpdate(Item item) {
-        if (item.quality < 50) {
-            item.quality += 1;
-            if (item.sellIn <= 10) {
-                item.quality += 1;
-            }
-            if (item.sellIn <= 5) {
-                item.quality += 1;
-            }
-            if (item.sellIn == 0) {
-                item.quality = 0;
-            }
-        }
-        item.sellIn -= 1;
-    }
-
-    private void sulfurasUpdate(Item item) {
-
-    }
-
-
-    private void agedBrieUpdate(Item item) {
-        if (item.quality < 50) {
-            item.quality += 1;
-            if (item.sellIn == 0) {
-                item.quality += 1;
-            }
-        }
-
-        item.sellIn -= 1;
-    }
-
-    class NormalItem {
-        Item item;
-
-        public NormalItem(Item item) {
-            this.item = item;
-        }
-
-        private void update() {
-            if (item.quality > 0) {
-                item.quality -= 1;
-
-                if (item.sellIn == 0) {
-                    item.quality -= 1;
-                }
-            }
-
-            item.sellIn -= 1;
-        }
-    }
 }
