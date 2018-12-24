@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.util.List;
 
+import static com.gildedrose.ItemBuilder.anItem;
 import static com.gildedrose.matchers.ItemNameMatcher.name;
 import static com.gildedrose.matchers.ItemQualityMatcher.quality;
 import static com.gildedrose.matchers.ItemSellInMatcher.sellIn;
@@ -16,14 +17,15 @@ public class GildedRoseTest {
 
     @Test
     public void normal_item_degrades_quality_and_sellIn() {
-        List<Item> items = singletonList(new Item("normal", 5, 5));
+        List<Item> items = singletonList(anItem().withName("normal")
+                                                 .withQuality(5)
+                                                 .withSellIn(5).build());
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertThat(items.get(0),
-            allOf(
-                name(equalTo("normal")),
-                quality(equalTo(4)),
-                sellIn(equalTo(4))));
+                   allOf(name(equalTo("normal")),
+                         quality(equalTo(4)),
+                         sellIn(equalTo(4))));
     }
 
     @Test
@@ -32,10 +34,9 @@ public class GildedRoseTest {
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertThat(items.get(0),
-           allOf(
-               name(equalTo("normal")),
-               quality(equalTo(3)),
-               sellIn(equalTo(-1))));
+                   allOf(name(equalTo("normal")),
+                         quality(equalTo(3)),
+                         sellIn(equalTo(-1))));
     }
 
     @Test
@@ -44,10 +45,9 @@ public class GildedRoseTest {
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertThat(items.get(0),
-            allOf(
-                name(equalTo("normal")),
-                quality(equalTo(0)),
-                sellIn(equalTo(4))));
+                   allOf(name(equalTo("normal")),
+                         quality(equalTo(0)),
+                         sellIn(equalTo(4))));
     }
 
 }
