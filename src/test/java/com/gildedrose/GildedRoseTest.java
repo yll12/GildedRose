@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.util.List;
 
+import static com.gildedrose.ItemBuilder.anItem;
 import static com.gildedrose.matchers.ItemNameMatcher.name;
 import static com.gildedrose.matchers.ItemQualityMatcher.quality;
 import static com.gildedrose.matchers.ItemSellInMatcher.sellIn;
@@ -25,8 +26,10 @@ public class GildedRoseTest {
                          sellIn(equalTo(4))));
     }
 
-    private Item getNormal(int i, int i2) {
-        return new Item("normal", i, i2);
+    private Item getNormal(int sellIn, int quality) {
+        return anItem().withName("normal")
+                       .withSellIn(sellIn)
+                       .withQuality(quality).build();
     }
 
     @Test
