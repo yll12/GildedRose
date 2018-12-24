@@ -11,6 +11,12 @@ class GildedRose {
 
     public void updateQuality() {
         for (int i = 0; i < items.size(); i++) {
+
+            if (items.get(i).name.equals("normal")) {
+                normalUpdate(items.get(i));
+                return;
+            }
+
             if (!items.get(i).name.equals("Aged Brie")
                     && !items.get(i).name.equals("Backstage passes to a TAFKAL80ETC concert")) {
                 if (items.get(i).quality > 0) {
@@ -60,5 +66,17 @@ class GildedRose {
                 }
             }
         }
+    }
+
+    private void normalUpdate(Item item) {
+        if (item.quality != 0) {
+            item.quality -= 1;
+        }
+
+        if (item.sellIn == 0) {
+            item.quality -= 1;
+        }
+
+        item.sellIn -= 1;
     }
 }
