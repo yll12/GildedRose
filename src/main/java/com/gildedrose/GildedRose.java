@@ -5,7 +5,7 @@ import java.util.List;
 class GildedRose {
     List<Item> items;
 
-    public GildedRose(List<Item> items) {
+    GildedRose(List<Item> items) {
         this.items = items;
     }
 
@@ -14,7 +14,7 @@ class GildedRose {
 
             switch (items.get(i).name) {
                 case "normal":
-                    normalUpdate(items.get(i));
+                    new NormalItem().normalUpdate(items.get(i));
                     return;
                 case "Aged Brie":
                     agedBrieUpdate(items.get(i));
@@ -61,15 +61,18 @@ class GildedRose {
         item.sellIn -= 1;
     }
 
-    private void normalUpdate(Item item) {
-        if (item.quality > 0) {
-            item.quality -= 1;
-
-            if (item.sellIn == 0) {
+    class NormalItem {
+        Item item;
+        private void normalUpdate(Item item) {
+            if (item.quality > 0) {
                 item.quality -= 1;
-            }
-        }
 
-        item.sellIn -= 1;
+                if (item.sellIn == 0) {
+                    item.quality -= 1;
+                }
+            }
+
+            item.sellIn -= 1;
+        }
     }
 }
