@@ -16,7 +16,7 @@ public class GildedRoseTest {
 
     @Test
     public void normal_item_degrades_quality_and_sellIn() {
-        List<Item> items = singletonList(new Item("normal", 5, 5));
+        List<Item> items = singletonList(getNormal(5, 5));
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertThat(items.get(0),
@@ -25,9 +25,13 @@ public class GildedRoseTest {
                          sellIn(equalTo(4))));
     }
 
+    private Item getNormal(int i, int i2) {
+        return new Item("normal", i, i2);
+    }
+
     @Test
     public void normal_item_degrades_twice_as_fast_if_sellIn_is_zero() {
-        List<Item> items = singletonList(new Item("normal", 0, 5));
+        List<Item> items = singletonList(getNormal(0, 5));
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertThat(items.get(0),
@@ -38,7 +42,7 @@ public class GildedRoseTest {
 
     @Test
     public void normal_item_quality_is_never_negative() {
-        List<Item> items = singletonList(new Item("normal", 5, 0));
+        List<Item> items = singletonList(getNormal(5, 0));
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertThat(items.get(0),
