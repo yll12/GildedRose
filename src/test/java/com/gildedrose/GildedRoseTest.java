@@ -4,7 +4,6 @@ import org.junit.Test;
 
 import java.util.List;
 
-import static com.gildedrose.ItemBuilder.anItem;
 import static com.gildedrose.matchers.ItemNameMatcher.name;
 import static com.gildedrose.matchers.ItemQualityMatcher.quality;
 import static com.gildedrose.matchers.ItemSellInMatcher.sellIn;
@@ -17,9 +16,7 @@ public class GildedRoseTest {
 
     @Test
     public void normal_item_degrades_quality_and_sellIn() {
-        List<Item> items = singletonList(anItem().withName("normal")
-                                                 .withQuality(5)
-                                                 .withSellIn(5).build());
+        List<Item> items = singletonList(new Item("normal", 5, 5));
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertThat(items.get(0),
