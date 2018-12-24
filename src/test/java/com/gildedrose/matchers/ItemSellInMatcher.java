@@ -1,17 +1,19 @@
-package com.gildedrose;
+package com.gildedrose.matchers;
+
+import com.gildedrose.Item;
 
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
 
-class ItemSellInMatcher extends TypeSafeMatcher<Item> {
+public class ItemSellInMatcher extends TypeSafeMatcher<Item> {
     private Matcher<Integer> expectedSellIn;
 
-    public ItemSellInMatcher(Matcher<Integer> expectedSellIn) {
+    private ItemSellInMatcher(Matcher<Integer> expectedSellIn) {
         this.expectedSellIn = expectedSellIn;
     }
 
-    static Matcher<Item> sellIn(Matcher<Integer> sellIn) {
+    public static Matcher<Item> sellIn(Matcher<Integer> sellIn) {
         return new ItemSellInMatcher(sellIn);
     }
 

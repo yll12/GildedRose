@@ -4,9 +4,9 @@ import org.junit.Test;
 
 import java.util.List;
 
-import static com.gildedrose.ItemNameMatcher.name;
-import static com.gildedrose.ItemQualityMatcher.quality;
-import static com.gildedrose.ItemSellInMatcher.sellIn;
+import static com.gildedrose.matchers.ItemNameMatcher.name;
+import static com.gildedrose.matchers.ItemQualityMatcher.quality;
+import static com.gildedrose.matchers.ItemSellInMatcher.sellIn;
 import static java.util.Collections.singletonList;
 import static org.hamcrest.CoreMatchers.allOf;
 import static org.hamcrest.CoreMatchers.equalTo;

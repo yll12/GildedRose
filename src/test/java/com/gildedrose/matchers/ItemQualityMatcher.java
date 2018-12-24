@@ -1,17 +1,19 @@
-package com.gildedrose;
+package com.gildedrose.matchers;
+
+import com.gildedrose.Item;
 
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
 
-class ItemQualityMatcher extends TypeSafeMatcher<Item> {
+public class ItemQualityMatcher extends TypeSafeMatcher<Item> {
     private Matcher<Integer> expectedQuality;
 
-    public ItemQualityMatcher(Matcher<Integer> expectedQuality) {
+    private ItemQualityMatcher(Matcher<Integer> expectedQuality) {
         this.expectedQuality = expectedQuality;
     }
 
-    static Matcher<Item> quality(Matcher<Integer> quality) {
+    public static Matcher<Item> quality(Matcher<Integer> quality) {
         return new ItemQualityMatcher(quality);
     }
 

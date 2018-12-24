@@ -1,18 +1,20 @@
-package com.gildedrose;
+package com.gildedrose.matchers;
+
+import com.gildedrose.Item;
 
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
 
-class ItemNameMatcher extends TypeSafeMatcher<Item> {
+public class ItemNameMatcher extends TypeSafeMatcher<Item> {
 
     private Matcher<String> expectedName;
 
-    public ItemNameMatcher(Matcher<String> expectedName) {
+    private ItemNameMatcher(Matcher<String> expectedName) {
         this.expectedName = expectedName;
     }
 
-    static Matcher<Item> name(Matcher<String> name) {
+    public static Matcher<Item> name(Matcher<String> name) {
         return new ItemNameMatcher(name);
     }
 
