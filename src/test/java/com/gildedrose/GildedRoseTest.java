@@ -15,12 +15,12 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class GildedRoseTest {
 
+    public static final ItemBuilder NORMAL_ITEM = anItem().withName("normal");
+
     @Test
     public void normal_item_degrades_quality_and_sellIn() {
-        List<Item> items = singletonList(anItem().withName("normal")
-                                                 .withSellIn(5)
-                                                 .withQuality(5)
-                                                 .build());
+        List<Item> items = singletonList(NORMAL_ITEM.withSellIn(5)
+                                                    .withQuality(5).build());
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertThat(items.get(0),
@@ -31,10 +31,8 @@ public class GildedRoseTest {
 
     @Test
     public void normal_item_degrades_twice_as_fast_if_sellIn_is_zero() {
-        List<Item> items = singletonList(anItem().withName("normal")
-                                                 .withSellIn(0)
-                                                 .withQuality(5)
-                                                 .build());
+        List<Item> items = singletonList(NORMAL_ITEM.withSellIn(0)
+                                                    .withQuality(5).build());
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertThat(items.get(0),
@@ -45,10 +43,8 @@ public class GildedRoseTest {
 
     @Test
     public void normal_item_quality_is_never_negative() {
-        List<Item> items = singletonList(anItem().withName("normal")
-                                                 .withSellIn(5)
-                                                 .withQuality(0)
-                                                 .build());
+        List<Item> items = singletonList(NORMAL_ITEM.withSellIn(5)
+                                                    .withQuality(0).build());
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertThat(items.get(0),
