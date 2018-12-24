@@ -16,6 +16,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class GildedRoseTest {
 
     public static final ItemBuilder NORMAL_ITEM = anItem().withName("normal");
+    public static final ItemBuilder AGED_BRIE = anItem().withName("Aged Brie");
 
     @Test
     public void normal_item_degrades_quality_and_sellIn() {
@@ -52,9 +53,8 @@ public class GildedRoseTest {
 
     @Test
     public void aged_brie_increases_quality_when_sellIn_decreases() {
-        List<Item> items = singletonList(anItem().withName("Aged Brie")
-                                                 .withSellIn(5)
-                                                 .withQuality(5).build());
+        List<Item> items = singletonList(AGED_BRIE.withSellIn(5)
+                                                  .withQuality(5).build());
         new GildedRose(items).updateQuality();
         assertThat(items.get(0),
                    allOf(name(equalTo("Aged Brie")),
@@ -64,9 +64,8 @@ public class GildedRoseTest {
 
     @Test
     public void aged_brie_quality_never_exceeds_50() {
-        List<Item> items = singletonList(anItem().withName("Aged Brie")
-                                                 .withSellIn(5)
-                                                 .withQuality(50).build());
+        List<Item> items = singletonList(AGED_BRIE.withSellIn(5)
+                                                  .withQuality(50).build());
         new GildedRose(items).updateQuality();
         assertThat(items.get(0),
                    allOf(name(equalTo("Aged Brie")),
@@ -76,9 +75,8 @@ public class GildedRoseTest {
 
     @Test
     public void aged_brie_quality_increase_twice_rate_when_sellIn_is_zero() {
-        List<Item> items = singletonList(anItem().withName("Aged Brie")
-                                                 .withSellIn(0)
-                                                 .withQuality(5).build());
+        List<Item> items = singletonList(AGED_BRIE.withSellIn(0)
+                                                  .withQuality(5).build());
         new GildedRose(items).updateQuality();
         assertThat(items.get(0),
                    allOf(name(equalTo("Aged Brie")),
