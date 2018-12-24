@@ -53,4 +53,43 @@ public class GildedRoseTest {
                          sellIn(equalTo(4))));
     }
 
+    @Test
+    public void aged_brie_increases_quality_when_sellIn_decreases() {
+        List<Item> items = singletonList(anItem().withName("Aged Brie")
+                                                 .withSellIn(5)
+                                                 .withQuality(5).build());
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertThat(items.get(0),
+                   allOf(name(equalTo("Aged Brie")),
+                         quality(equalTo(6)),
+                         sellIn(equalTo(4))));
+    }
+
+    @Test
+    public void aged_brie_quality_never_exceeds_50() {
+        List<Item> items = singletonList(anItem().withName("Aged Brie")
+                                                 .withSellIn(5)
+                                                 .withQuality(50).build());
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertThat(items.get(0),
+                   allOf(name(equalTo("Aged Brie")),
+                         quality(equalTo(50)),
+                         sellIn(equalTo(4))));
+    }
+
+    @Test
+    public void aged_brie_quality_increase_twice_rate_when_sellIn_is_zero() {
+        List<Item> items = singletonList(anItem().withName("Aged Brie")
+                                                 .withSellIn(0)
+                                                 .withQuality(5).build());
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertThat(items.get(0),
+                   allOf(name(equalTo("Aged Brie")),
+                         quality(equalTo(7)),
+                         sellIn(equalTo(-1))));
+    }
+
 }
