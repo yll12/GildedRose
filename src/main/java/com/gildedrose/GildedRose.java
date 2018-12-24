@@ -52,9 +52,9 @@ class GildedRose {
     private void agedBrieUpdate(Item item) {
         if (item.quality < 50) {
             item.quality += 1;
-        }
-        if (item.sellIn == 0) {
-            item.quality += 1;
+            if (item.sellIn == 0) {
+                item.quality += 1;
+            }
         }
 
         item.sellIn -= 1;
@@ -63,10 +63,10 @@ class GildedRose {
     private void normalUpdate(Item item) {
         if (item.quality > 0) {
             item.quality -= 1;
-        }
 
-        if (item.sellIn == 0) {
-            item.quality -= 1;
+            if (item.sellIn == 0) {
+                item.quality -= 1;
+            }
         }
 
         item.sellIn -= 1;

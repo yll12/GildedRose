@@ -43,12 +43,12 @@ public class GildedRoseTest {
 
     @Test
     public void normal_item_quality_is_never_negative() {
-        List<Item> items = singletonList(NORMAL_ITEM.withSellIn(5)
+        List<Item> items = singletonList(NORMAL_ITEM.withSellIn(0)
                                                     .withQuality(0).build());
         new GildedRose(items).updateQuality();
         assertThat(items.get(0),
                    allOf(name(equalTo("normal")),
-                         sellIn(equalTo(4)),
+                         sellIn(equalTo(-1)),
                          quality(equalTo(0))));
     }
 
@@ -65,12 +65,12 @@ public class GildedRoseTest {
 
     @Test
     public void aged_brie_quality_never_exceeds_50() {
-        List<Item> items = singletonList(AGED_BRIE.withSellIn(5)
+        List<Item> items = singletonList(AGED_BRIE.withSellIn(0)
                                                   .withQuality(50).build());
         new GildedRose(items).updateQuality();
         assertThat(items.get(0),
                    allOf(name(equalTo("Aged Brie")),
-                         sellIn(equalTo(4)),
+                         sellIn(equalTo(-1)),
                          quality(equalTo(50))));
     }
 
