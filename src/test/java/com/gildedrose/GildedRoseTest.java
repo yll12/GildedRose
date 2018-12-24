@@ -25,8 +25,8 @@ public class GildedRoseTest {
         new GildedRose(items).updateQuality();
         assertThat(items.get(0),
                    allOf(name(equalTo("normal")),
-                         quality(equalTo(4)),
-                         sellIn(equalTo(4))));
+                         sellIn(equalTo(4)),
+                         quality(equalTo(4))));
     }
 
     @Test
@@ -36,8 +36,8 @@ public class GildedRoseTest {
         new GildedRose(items).updateQuality();
         assertThat(items.get(0),
                    allOf(name(equalTo("normal")),
-                         quality(equalTo(3)),
-                         sellIn(equalTo(-1))));
+                         sellIn(equalTo(-1)),
+                         quality(equalTo(3))));
     }
 
     @Test
@@ -47,8 +47,8 @@ public class GildedRoseTest {
         new GildedRose(items).updateQuality();
         assertThat(items.get(0),
                    allOf(name(equalTo("normal")),
-                         quality(equalTo(0)),
-                         sellIn(equalTo(4))));
+                         sellIn(equalTo(4)),
+                         quality(equalTo(0))));
     }
 
     @Test
@@ -58,8 +58,8 @@ public class GildedRoseTest {
         new GildedRose(items).updateQuality();
         assertThat(items.get(0),
                    allOf(name(equalTo("Aged Brie")),
-                         quality(equalTo(6)),
-                         sellIn(equalTo(4))));
+                         sellIn(equalTo(4)),
+                         quality(equalTo(6))));
     }
 
     @Test
@@ -69,8 +69,8 @@ public class GildedRoseTest {
         new GildedRose(items).updateQuality();
         assertThat(items.get(0),
                    allOf(name(equalTo("Aged Brie")),
-                         quality(equalTo(50)),
-                         sellIn(equalTo(4))));
+                         sellIn(equalTo(4)),
+                         quality(equalTo(50))));
     }
 
     @Test
@@ -80,8 +80,8 @@ public class GildedRoseTest {
         new GildedRose(items).updateQuality();
         assertThat(items.get(0),
                    allOf(name(equalTo("Aged Brie")),
-                         quality(equalTo(7)),
-                         sellIn(equalTo(-1))));
+                         sellIn(equalTo(-1)),
+                         quality(equalTo(7))));
     }
 
     @Test
@@ -92,8 +92,8 @@ public class GildedRoseTest {
         new GildedRose(items).updateQuality();
         assertThat(items.get(0),
                    allOf(name(equalTo("Sulfuras, Hand of Ragnaros")),
-                         quality(equalTo(5)),
-                         sellIn(equalTo(5))));
+                         sellIn(equalTo(5)),
+                         quality(equalTo(5))));
     }
 
     @Test
@@ -104,8 +104,8 @@ public class GildedRoseTest {
         new GildedRose(items).updateQuality();
         assertThat(items.get(0),
                    allOf(name(equalTo("Backstage passes to a TAFKAL80ETC concert")),
-                         quality(equalTo(6)),
-                         sellIn(equalTo(14))));
+                         sellIn(equalTo(14)),
+                         quality(equalTo(6))));
     }
 
     @Test
@@ -116,8 +116,8 @@ public class GildedRoseTest {
         new GildedRose(items).updateQuality();
         assertThat(items.get(0),
                    allOf(name(equalTo("Backstage passes to a TAFKAL80ETC concert")),
-                         quality(equalTo(7)),
-                         sellIn(equalTo(9))));
+                         sellIn(equalTo(9)),
+                         quality(equalTo(7))));
     }
 
     @Test
@@ -128,8 +128,8 @@ public class GildedRoseTest {
         new GildedRose(items).updateQuality();
         assertThat(items.get(0),
                    allOf(name(equalTo("Backstage passes to a TAFKAL80ETC concert")),
-                         quality(equalTo(8)),
-                         sellIn(equalTo(3))));
+                         sellIn(equalTo(3)),
+                         quality(equalTo(8))));
     }
 
     @Test
@@ -140,8 +140,8 @@ public class GildedRoseTest {
         new GildedRose(items).updateQuality();
         assertThat(items.get(0),
                    allOf(name(equalTo("Backstage passes to a TAFKAL80ETC concert")),
-                         quality(equalTo(0)),
-                         sellIn(equalTo(-1))));
+                         sellIn(equalTo(-1)),
+                         quality(equalTo(0))));
     }
 
     @Test
@@ -152,8 +152,8 @@ public class GildedRoseTest {
         new GildedRose(items).updateQuality();
         assertThat(items.get(0),
                    allOf(name(equalTo("Backstage passes to a TAFKAL80ETC concert")),
-                         quality(equalTo(50)),
-                         sellIn(equalTo(4))));
+                         sellIn(equalTo(4)),
+                         quality(equalTo(50))));
     }
 
 }
