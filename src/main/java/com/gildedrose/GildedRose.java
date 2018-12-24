@@ -14,7 +14,7 @@ class GildedRose {
 
             switch (items.get(i).name) {
                 case "normal":
-                    new NormalItem().normalUpdate(items.get(i));
+                    new NormalItem(items.get(i)).update();
                     return;
                 case "Aged Brie":
                     agedBrieUpdate(items.get(i));
@@ -63,7 +63,12 @@ class GildedRose {
 
     class NormalItem {
         Item item;
-        private void normalUpdate(Item item) {
+
+        public NormalItem(Item item) {
+            this.item = item;
+        }
+
+        private void update() {
             if (item.quality > 0) {
                 item.quality -= 1;
 
