@@ -15,6 +15,9 @@ class GildedRose {
             if (items.get(i).name.equals("normal")) {
                 normalUpdate(items.get(i));
                 return;
+            } else if (items.get(i).name.equals("Aged Brie")) {
+                agedBrieUpdate(items.get(i));
+                return;
             }
 
             if (!items.get(i).name.equals("Aged Brie")
@@ -68,8 +71,19 @@ class GildedRose {
         }
     }
 
+    private void agedBrieUpdate(Item item) {
+        if (item.quality < 50) {
+            item.quality += 1;
+        }
+        if (item.sellIn == 0) {
+            item.quality += 1;
+        }
+
+        item.sellIn -= 1;
+    }
+
     private void normalUpdate(Item item) {
-        if (item.quality != 0) {
+        if (item.quality > 0) {
             item.quality -= 1;
         }
 
