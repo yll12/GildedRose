@@ -1,8 +1,8 @@
 package com.gildedrose;
 
-class AgedBrieItem extends ItemRole {
+class AgedBrie extends ItemRole {
 
-    public AgedBrieItem(Item item) {
+    public AgedBrie(Item item) {
         this.item = item;
     }
 

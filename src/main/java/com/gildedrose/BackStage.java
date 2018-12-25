@@ -1,7 +1,7 @@
 package com.gildedrose;
 
-class BackStageItem extends ItemRole {
-    public BackStageItem(Item item) {
+class BackStage extends ItemRole {
+    public BackStage(Item item) {
         this.item = item;
     }
 

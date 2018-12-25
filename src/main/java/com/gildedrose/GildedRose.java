@@ -11,25 +11,22 @@ class GildedRose {
 
     public void updateQuality() {
         for (int i = 0; i < items.size(); i++) {
+            getItemRole(items.get(i)).update();
+        }
+    }
 
-            switch (items.get(i).name) {
-                case "normal":
-                    final ItemRole normalItem = new NormalItem(items.get(i));
-                    normalItem.update();
-                    return;
-                case "Aged Brie":
-                    final ItemRole agedBrieItem = new AgedBrieItem(items.get(i));
-                    agedBrieItem.update();
-                    return;
-                case "Sulfuras, Hand of Ragnaros":
-                    final ItemRole sulfurasItem = new SulfurasItem(items.get(i));
-                    sulfurasItem.update();
-                    return;
-                case "Backstage passes to a TAFKAL80ETC concert":
-                    final ItemRole backStageItem = new BackStageItem(items.get(i));
-                    backStageItem.update();
-                    return;
-            }
+    public ItemRole getItemRole(Item item) {
+        switch (item.name) {
+            case "normal":
+                return new Normal(item);
+            case "Aged Brie":
+                return new AgedBrie(item);
+            case "Sulfuras, Hand of Ragnaros":
+                return new Sulfuras(item);
+            case "Backstage passes to a TAFKAL80ETC concert":
+                return new BackStage(item);
+            default:
+                return null;
         }
     }
 
