@@ -2,7 +2,7 @@ package com.gildedrose;
 
 class SulfurasItem {
 
-    public SulfurasItem(Item item) {
+    public SulfurasItem() {
     }
 
     public void update() {
