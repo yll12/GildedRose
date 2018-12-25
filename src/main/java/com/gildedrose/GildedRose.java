@@ -14,16 +14,20 @@ class GildedRose {
 
             switch (items.get(i).name) {
                 case "normal":
-                    new NormalItem(items.get(i)).update();
+                    final ItemRole normalItem = new NormalItem(items.get(i));
+                    normalItem.update();
                     return;
                 case "Aged Brie":
-                    new AgedBrieItem(items.get(i)).update();
+                    final ItemRole agedBrieItem = new AgedBrieItem(items.get(i));
+                    agedBrieItem.update();
                     return;
                 case "Sulfuras, Hand of Ragnaros":
-                    new SulfurasItem().update();
+                    final ItemRole sulfurasItem = new SulfurasItem(items.get(i));
+                    sulfurasItem.update();
                     return;
                 case "Backstage passes to a TAFKAL80ETC concert":
-                    new BackStageItem(items.get(i)).update();
+                    final ItemRole backStageItem = new BackStageItem(items.get(i));
+                    backStageItem.update();
                     return;
             }
         }

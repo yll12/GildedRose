@@ -1,7 +1,6 @@
 package com.gildedrose;
 
-class NormalItem {
-    Item item;
+class NormalItem extends ItemRole {
 
     public NormalItem(Item item) {
         this.item = item;

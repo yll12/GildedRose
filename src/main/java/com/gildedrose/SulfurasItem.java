@@ -1,8 +1,9 @@
 package com.gildedrose;
 
-class SulfurasItem {
+class SulfurasItem extends ItemRole{
 
-    public SulfurasItem() {
+    public SulfurasItem(Item item) {
+
     }
 
     public void update() {
