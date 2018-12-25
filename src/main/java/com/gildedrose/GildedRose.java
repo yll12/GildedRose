@@ -20,7 +20,7 @@ class GildedRose {
                     new AgedBrieItem(items.get(i)).update();
                     return;
                 case "Sulfuras, Hand of Ragnaros":
-                    new SulfurasItem().update();
+                    new SulfurasItem(items.get(i)).update();
                     return;
                 case "Backstage passes to a TAFKAL80ETC concert":
                     new BackStageItem(items.get(i)).update();
