@@ -5,7 +5,7 @@ import org.mockito.Mockito;
 
 import java.util.List;
 
-import static com.gildedrose.ItemBuilder.anItem;
+import static com.gildedrose.builders.ItemBuilder.anItem;
 import static java.util.Arrays.asList;
 import static org.mockito.Mockito.*;
 

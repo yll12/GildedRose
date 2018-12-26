@@ -1,8 +1,10 @@
 package com.gildedrose;
 
+import com.gildedrose.builders.ItemBuilder;
+
 import org.junit.Test;
 
-import static com.gildedrose.ItemBuilder.anItem;
+import static com.gildedrose.builders.ItemBuilder.anItem;
 import static com.gildedrose.ItemRoleFactory.*;
 import static com.gildedrose.matchers.ItemNameMatcher.name;
 import static com.gildedrose.matchers.ItemQualityMatcher.quality;
