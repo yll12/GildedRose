@@ -4,7 +4,7 @@ public class ItemRole {
 
     Item item;
 
-    public ItemRole(Item item) {
+    ItemRole(Item item) {
         this.item = item;
     }
 

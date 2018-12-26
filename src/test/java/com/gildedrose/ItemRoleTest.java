@@ -15,11 +15,12 @@ public class ItemRoleTest {
 
     @Test
     public void quality_and_sellIn_never_changes() {
-        Item item = anItem().withName("Sulfuras, Hand of Ragnaros")
-                            .withSellIn(5)
-                            .withQuality(5).build();
-        ItemRole itemRole = new ItemRole(item);
+        ItemRole itemRole = new ItemRole(anItem().withName("Sulfuras, Hand of Ragnaros")
+                                                 .withSellIn(5)
+                                                 .withQuality(5).build());
+
         itemRole.update();
+
         assertThat(itemRole.item,
                    allOf(name(equalTo("Sulfuras, Hand of Ragnaros")),
                          sellIn(equalTo(5)),

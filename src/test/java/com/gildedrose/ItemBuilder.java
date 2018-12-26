@@ -1,28 +1,28 @@
 package com.gildedrose;
 
 public final class ItemBuilder {
-    public String name;
-    public int sellIn;
-    public int quality;
+    private String name;
+    private int    sellIn;
+    private int    quality;
 
     private ItemBuilder() {
     }
 
-    public static ItemBuilder anItem() {
+    static ItemBuilder anItem() {
         return new ItemBuilder();
     }
 
-    public ItemBuilder withName(String name) {
+    ItemBuilder withName(String name) {
         this.name = name;
         return this;
     }
 
-    public ItemBuilder withSellIn(int sellIn) {
+    ItemBuilder withSellIn(int sellIn) {
         this.sellIn = sellIn;
         return this;
     }
 
-    public ItemBuilder withQuality(int quality) {
+    ItemBuilder withQuality(int quality) {
         this.quality = quality;
         return this;
     }
@@ -33,7 +33,7 @@ public final class ItemBuilder {
                        .withQuality(quality);
     }
 
-    public Item build() {
+    Item build() {
         return new Item(name, sellIn, quality);
     }
 }

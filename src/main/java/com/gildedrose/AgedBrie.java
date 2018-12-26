@@ -2,7 +2,7 @@ package com.gildedrose;
 
 class AgedBrie extends ItemRole {
 
-    public AgedBrie(Item item) {
+    AgedBrie(Item item) {
         super(item);
     }
 

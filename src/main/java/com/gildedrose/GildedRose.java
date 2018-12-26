@@ -4,14 +4,14 @@ import java.util.List;
 
 class GildedRose {
     private final ItemRoleFactory itemRoleFactory;
-    List<Item> items;
+    private       List<Item>      items;
 
     GildedRose(List<Item> items, ItemRoleFactory itemRoleFactory) {
         this.items = items;
         this.itemRoleFactory = itemRoleFactory;
     }
 
-    public void updateQuality() {
+    void updateQuality() {
         for (Item item : items) {
             itemRoleFactory.getItemRole(item).update();
         }
