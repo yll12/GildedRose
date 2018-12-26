@@ -4,7 +4,7 @@ import java.util.List;
 
 class GildedRose {
     private final ItemRoleFactory itemRoleFactory;
-    private       List<Item>      items;
+    List<Item>      items;
 
     GildedRose(List<Item> items, ItemRoleFactory itemRoleFactory) {
         this.items = items;
