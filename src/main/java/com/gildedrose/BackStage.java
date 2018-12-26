@@ -5,6 +5,7 @@ class BackStage extends ItemRole {
         super(item);
     }
 
+    @Override
     public void update() {
         if (item.quality < 50) {
             item.quality += 1;

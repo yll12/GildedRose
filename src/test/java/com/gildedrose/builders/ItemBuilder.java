@@ -4,8 +4,8 @@ import com.gildedrose.Item;
 
 public final class ItemBuilder {
     private String name;
-    private int    sellIn;
-    private int    quality;
+    private int sellIn;
+    private int quality;
 
     private ItemBuilder() {
     }
