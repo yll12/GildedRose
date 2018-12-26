@@ -1,8 +1,12 @@
 package com.gildedrose;
 
-public abstract class ItemRole {
+public class ItemRole {
 
     Item item;
+
+    public ItemRole(Item item) {
+        this.item = item;
+    }
 
     public void update() {
 

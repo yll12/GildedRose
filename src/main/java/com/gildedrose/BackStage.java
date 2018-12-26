@@ -2,7 +2,7 @@ package com.gildedrose;
 
 class BackStage extends ItemRole {
     public BackStage(Item item) {
-        this.item = item;
+        super(item);
     }
 
     public void update() {

@@ -3,7 +3,7 @@ package com.gildedrose;
 class Normal extends ItemRole {
 
     public Normal(Item item) {
-        this.item = item;
+        super(item);
     }
 
     public void update() {
