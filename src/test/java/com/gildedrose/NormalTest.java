@@ -19,11 +19,11 @@ public class NormalTest {
 
     @Test
     public void name_unchanged() {
-        Normal agedBrie = new Normal(anItem().withName(NORMAL).build());
+        Normal normal = new Normal(anItem().withName(NORMAL).build());
 
-        agedBrie.update();
+        normal.update();
 
-        assertThat(agedBrie.item, name(equalTo(NORMAL)));
+        assertThat(normal.item, name(equalTo(NORMAL)));
     }
 
     @Test
