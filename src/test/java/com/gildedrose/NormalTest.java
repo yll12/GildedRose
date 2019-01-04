@@ -5,7 +5,6 @@ import com.gildedrose.builders.ItemBuilder;
 import org.junit.Test;
 
 import static com.gildedrose.builders.ItemBuilder.anItem;
-import static com.gildedrose.ItemRoleFactory.NORMAL;
 import static com.gildedrose.matchers.ItemNameMatcher.name;
 import static com.gildedrose.matchers.ItemQualityMatcher.quality;
 import static com.gildedrose.matchers.ItemSellInMatcher.sellIn;
@@ -15,6 +14,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class NormalTest {
 
+    private static final String NORMAL = "normal";
     private static final ItemBuilder NORMAL_ITEM = anItem().withName(NORMAL);
 
     @Test

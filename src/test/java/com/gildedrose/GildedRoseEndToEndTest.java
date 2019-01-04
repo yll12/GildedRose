@@ -17,7 +17,7 @@ import static org.hamcrest.Matchers.contains;
 
 public class GildedRoseEndToEndTest {
 
-    private static final String SULFURAS_HAND_OF_RAGNAROS = "Sulfuras, Hand of Ragnaros";
+    private static final String NORMAL = "normal";
 
     @Test
     public void allItemsUpdatesCorrectly() {
